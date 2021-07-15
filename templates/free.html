@@ -19,12 +19,12 @@
     }
 
     .fc {
-        border: 1.5px solid #008cff;
+        border: 1.5px solid #ff7300;
         width: 100%;
         height: 50px;
-        color: #008cff;
+        color: #ff7300;
         border-radius: 50px;
-        background: linear-gradient(to right, #008cff, #008cff);
+        background: linear-gradient(to right, #ff7300, #ff7300);
         background: transparent;
     }
 
@@ -56,7 +56,7 @@
 
     .btn:hover {
         color: white !important;
-        background-color: #008cff !important;
+        background-color: #ff7300 !important;
     }
 
     .loader {
@@ -66,7 +66,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #008cff;
+        color: #ff7300;
         /* margin: 30px 30px; */
         /* float: left; */
     }
@@ -91,11 +91,11 @@
     }
 
     progress::-moz-progress-value {
-        background: #008cff;
+        background: #ff7300;
     }
 
     progress::-webkit-progress-value {
-        background: #008cff;
+        background: #ff7300;
     }
 
     .circle {
@@ -103,7 +103,6 @@
         overflow: hidden;
         padding: 0;
     }
-
     .spin {
         animation: spin 2s linear infinite;
     }
@@ -117,18 +116,12 @@
 <div class="container table_part text-center mx-auto"
     style="margin-top: 20px; margin-bottom: 0 !important; display: none;">
     <div class="text-left mr-auto">
-        <p>
-        <h3>Total Errors : <span class="nos" style="font-size: 3rem; color: #008cff;"></span></h3>
-        <!-- <small style="color: #008cff; font-weight: 600; font-size: 15px;">*Some results may differ for a human. My
-            programming is improving with every
-            use.</small>
-        <br><br><br><br>
-        <div class="col-md-6 mx-auto text-left table-responsive">
-            <table class="table">
-            </table>
-        </div> -->
+        <br>
+        <h3>Results for : <span id="final_domain" style="font-size: 3rem; color: #ff7300;"></span></h3>
+        <br>
+        <h3>Errors found : <span class="nos" style="font-size: 3rem; color: #ff7300;"></span></h3>
         <br><br>
-        <button onclick="location.reload();" class="btn btn-outline-primary" s>Go Back</button>
+        <button onclick="location.reload();" class="btn btn-outline-warning" s>Go Back</button>
         <br><br>
     </div>
 </div>
@@ -140,7 +133,7 @@
         <div class="form-group">
             <input type="text" class="form-control fc" name="web_url" placeholder="Insert your web page">
         </div>
-        <button type="submit" class="btn btn-outline-primary">Submit</button>
+        <button type="submit" class="btn btn-outline-warning">Submit</button>
     </form>
 </div>
 <div class="col-sm-12 text-center col-md-6 mx-auto progress-part" style="margin-top: 20px; left: 0; display: none;">
@@ -151,6 +144,7 @@
 <script src="https://cdn.jsdelivr.net/npm/typo-js@1.2.0/typo.min.js"></script>
 <script>
     var nos_of_errors = 0;
+    var full_url;
     var url, str, sentence, prev_data;
     var prev_arr = [];
     function make_string(arr) {
@@ -174,6 +168,7 @@
             // }
             // $('.table').append('<tr><td>' + data + '</td><td>:</td><td>' + corrected + '</td></tr>');
             $('.nos').html(nos_of_errors).fadeIn('slow');
+            $('#final_domain').html(full_url);
         }
     }
 
@@ -236,6 +231,7 @@
     }
 
     function strip_url(url) {
+        full_url = url;
         url = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "").split('/')[0];
         return url.split('.')[0];
     }
@@ -274,7 +270,6 @@
                         for (var l = 0; l < prev_data.length; l++) {
                             prev_arr.push(prev_data[l]['fields']['text']);
                         }
-                        // $('.table').html('<tr><td style="font-size: 1.2rem; font-weight: 800;"><b>Errors Found</b></td><td style="font-size: 1.2rem;"></td><td style="font-size: 1.2rem;"><b>Suggestions</b></td></tr>');
 
                         var t = (5 - count) * 2500;
                         console.log("Wait for : " + t);

@@ -3,6 +3,7 @@
     <style>
         html,
         body {
+            display: none;
             font-family: 'KoHo' !important;
         }
 
@@ -19,12 +20,12 @@
         }
 
         .fc {
-            border: 1.5px solid #008cff;
+            border: 1.5px solid #ff7300;
             width: 100%;
             height: 50px;
-            color: #008cff;
+            color: #ff7300;
             border-radius: 50px;
-            background: linear-gradient(to right, #008cff, #008cff);
+            background: linear-gradient(to right, #ff7300, #ff7300);
             background: transparent;
         }
 
@@ -56,7 +57,7 @@
 
         .btn:hover {
             color: white !important;
-            background-color: #008cff !important;
+            background-color: #ff7300 !important;
         }
 
         .loader {
@@ -66,7 +67,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #008cff;
+            color: #ff7300;
             /* margin: 30px 30px; */
             /* float: left; */
         }
@@ -91,11 +92,11 @@
         }
 
         progress::-moz-progress-value {
-            background: #008cff;
+            background: #ff7300;
         }
 
         progress::-webkit-progress-value {
-            background: #008cff;
+            background: #ff7300;
         }
 
         .circle {
@@ -118,8 +119,8 @@
         style="margin-top: 20px; margin-bottom: 0 !important; display: none;">
         <div class="text-left mr-auto">
             <p>
-            <h3>Total Errors : <span class="nos" style="font-size: 3rem; color: #008cff;"></span></h3>
-            <small style="color: #008cff; font-weight: 600; font-size: 15px;">*Some results may differ for a human. My
+            <h3>Total Errors : <span class="nos" style="font-size: 3rem; color: #ff7300;"></span></h3>
+            <small style="color: #ff7300; font-weight: 600; font-size: 15px;">*Some results may differ for a human. My
                 programming is improving with every
                 use.</small>
             <br><br><br><br>
@@ -128,7 +129,7 @@
                 </table>
             </div>
             <br><br>
-            <button onclick="location.reload();" class="btn btn-outline-primary" s>Go Back</button>
+            <button onclick="location.reload();" class="btn btn-outline-warning" s>Go Back</button>
             <br><br>
         </div>
     </div>
@@ -140,7 +141,7 @@
             <div class="form-group">
                 <input type="text" class="form-control fc" name="web_url" placeholder="Insert your web page">
             </div>
-            <button type="submit" class="btn btn-outline-primary">Submit</button>
+            <button type="submit" class="btn btn-outline-warning">Submit</button>
         </form>
     </div>
     <div class="col-sm-12 text-center col-md-6 mx-auto progress-part" style="margin-top: 20px; left: 0; display: none;">
